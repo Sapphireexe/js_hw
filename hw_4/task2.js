@@ -19,7 +19,7 @@ const maxAge = 60;
 function checkAge(age) {
   let ageStatus;
 
-  if (typeof age !== `number` || isNaN(age)) {
+  if (typeof age !== `number`) {
     throw new Error (`Incorrect data type`);
   }
   
