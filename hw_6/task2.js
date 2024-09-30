@@ -11,8 +11,10 @@ const myPizzas2 = ['Diablo', 'hawai', 'Peperoni', 'Caprichosa', '4 cheeses'];
 
 function comparePizzas (myPizzas = [], competitorPizzas = []) {
   const myUniquePizzas = [];
+  const stringOfCompetitorPizzas = competitorPizzas.toString().toLowerCase().replaceAll(' ', '');
+
   for (const myPizza of myPizzas) {
-    if (!(competitorPizzas.toString().toLowerCase().replaceAll(' ', '').includes(myPizza.toLowerCase().replaceAll(' ', '')))) {
+    if (!(stringOfCompetitorPizzas.includes(myPizza.toLowerCase().replaceAll(' ', '')))) {
       myUniquePizzas.push(myPizza);
     }
   }
