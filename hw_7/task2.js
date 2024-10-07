@@ -16,15 +16,15 @@ function checkPalindrome(string) {
         }
     }
 
-    return isPalindrome ? `Word ${string} is palindrome` : `Word ${string} is not palindrome`;
+    return isPalindrome;
 }
 
-console.log(checkPalindrome('level'));
-console.log(checkPalindrome('Hannah'));
-console.log(checkPalindrome('91019'));
-console.log(checkPalindrome('Radar'));
-console.log(checkPalindrome('Fish'));
-console.log(checkPalindrome('Peace'));
+console.log(checkPalindrome('level') ? `Word is palindrome` : `Word is not palindrome`);
+console.log(checkPalindrome('Hannah') ? `Word is palindrome` : `Word is not palindrome`);
+console.log(checkPalindrome('91019') ? `Word is palindrome` : `Word is not palindrome`);
+console.log(checkPalindrome('Radar') ? `Word is palindrome` : `Word is not palindrome`);
+console.log(checkPalindrome('Fish') ? `Word is palindrome` : `Word is not palindrome`);
+console.log(checkPalindrome('Peace') ? `Word is palindrome` : `Word is not palindrome`);
 
 // 2. Написать функцию, которая принимает предложение (слова разделенные только пробелами) в качестве параметра 
 //     и возвращает слово с наибольшим количеством букв. 
