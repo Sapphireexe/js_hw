@@ -14,7 +14,7 @@ numbersArray.forEach(number => {
 //   2. map - создайте новый массив, в котором из каждого элемента изначального массива вычли длину изначального массива 
 //      // [-3, -2, -8, 20, 75, 85, 67, 84, 27, 21]
 
-const extractLengthFromElements = numbersArray.map(number => number - numbersArray.length);
+const extractLengthFromElements = numbersArray.map((number, index, array) => number - array.length);
 
 console.log(extractLengthFromElements);
 
