@@ -19,11 +19,9 @@ function sortArrayByIncreasingVowels(array) {
     if (!Array.isArray(array)) {
         throw new Error (`Input is not array`);
     }
-    array.forEach(element => {
-        if (typeof element !== 'string') {
-            throw new Error (`Array contains ivalid type of element: element ${element} type ${typeof element}`);
-        }
-    });
+    if (array.some(element => typeof element !== 'string')) {
+        throw new Error (`Array must contain only stringical data`);
+    }
 
     return [...array].sort((a, b) => countVowels(a) - countVowels(b));
 }
