@@ -28,7 +28,8 @@ function getCharacter(name){
     if (typeof name !== 'string') throw new Error (`Input ${name} must be 'string'`);
 
     const character = characters.find(character => character.name === name);
-    return character ? character : null;
+    if(!character) throw new Error('Character not found');
+    return character;
 }
 
 console.log(getCharacter('Fred'));
@@ -39,7 +40,7 @@ function getCharactersByAge(minAge) {
     if (typeof minAge !== 'number') throw new Error (`Input ${minAge} must be 'number'`);
 
     const minAgeValidCharacters = characters.filter(character => character.age >= minAge);
-    return JSON.stringify(minAgeValidCharacters);
+    return minAgeValidCharacters;
 }
 
 console.log(getCharactersByAge(40));
@@ -48,18 +49,20 @@ console.log(getCharactersByAge(40));
 
 function updateCharacter(name, newCharacter) {
     if (typeof newCharacter !== 'object') throw new Error (`${JSON.stringify(newCharacter)} must be object`);
-    const keysOfNewCharacter = Object.keys(newCharacter);
-    if (!keysOfNewCharacter.includes('name')) throw new Error (`${JSON.stringify(newCharacter)} must contain 'name' key`);
-    if (!keysOfNewCharacter.includes('age')) throw new Error (`${JSON.stringify(newCharacter)} must contain 'age' key`);
-    if (typeof newCharacter.name !== 'string') throw new Error (`Name ${newCharacter.name} must be string`);
-    if (typeof newCharacter.age !== 'number') throw new Error (`Age ${newCharacter.age} must be number`);
+    if (!('name' in newCharacter || 'age' in newCharacter)) throw new Error (`${JSON.stringify(newCharacter)} must contain 'name' key or 'age' key`);
+    if ('name' in newCharacter && typeof newCharacter.name !== 'string') throw new Error (`Name ${newCharacter.name} must be string`);
+    if ('age' in newCharacter && typeof newCharacter.age !== 'number') throw new Error (`Age ${newCharacter.age} must be number`);
 
     const character = getCharacter(name);
     if (!character) throw new Error (`Can't find character with name ${name}`);
 
+    // const keysOfNewObject = Object.keys(newCharacter);
+    // for (const key of keysOfNewObject) {
+    //     character[key] = newCharacter[key];
+    // }
     const {name: newName, age: newAge} = newCharacter;
-    character.name = newName;
-    character.age = newAge;
+    character.name = newName ?? character.name;
+    character.age = newAge ?? character.age;
     console.log(`Successfully changed object to ${JSON.stringify(character)}`);
 }
 
