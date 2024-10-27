@@ -16,8 +16,7 @@ function getRandomArbitrary(min, max) {
 }
 
 function getUniqueRandomNumber (n) {
-  if (typeof n !== 'number') throw new Error (`Value ${n} must be number`);
-  if (!Number.isInteger(n)) throw new Error (`Value ${n} must be integer`);
+  if (typeof n !== 'number' || !Number.isInteger(n)) throw new Error (`Value ${n} must be integer number`);
 
   const uniqueNumbers = [];
   return () => {
