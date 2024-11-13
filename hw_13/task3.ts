@@ -42,14 +42,12 @@ interface IOrder {
 }
 
 function calculateTotal(order: IOrder): number {
-  const totalPrice = order.items.reduce((result, item, index, array) => {
-    if ('discount' in item.product && typeof item.product.discount === 'number') {
-      result += (item.product.price - item.product.price * item.product.discount / 100) * item.quantity;
-    } else {
-      result += item.product.price * item.quantity;
-    }
-    return result;
-  }, 0);
+  const totalPrice = order.items.reduce((result, { product: { discount, price }, quantity }) => {
+      discount
+        ? (result += (price - (price * discount) / 100) * quantity)
+        : (result += price * quantity);
+      return result;
+    }, 0);
   return totalPrice;
 }
 

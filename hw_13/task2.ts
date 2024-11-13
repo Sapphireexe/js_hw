@@ -11,10 +11,10 @@ function validatePassword(password: string): boolean {
   const uppercase = /(?=[A-Z]+)/.test(password);
   const lowercase = /(?=[a-z]+)/.test(password);
   const digit = /(?=[0-9]+)/.test(password);
-  const minlength = password.length >= 8 ? true : false;
+  const minlength = password.length >= 8;
   const onlyspaces = Boolean(password.trim().length);
 
-  return uppercase && lowercase && digit && minlength && onlyspaces ? true : false;
+  return uppercase && lowercase && digit && minlength && onlyspaces;
 }
 
 console.log(validatePassword('Az1Az1Az')); // true
