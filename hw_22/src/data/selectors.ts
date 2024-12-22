@@ -1,6 +1,4 @@
-import { ISelectors } from './types';
-
-export const SELECTORS: ISelectors = {
+export const SELECTORS: Record<string, string> = {
   registerFormButton: '#registerOnLogin',
   usernameRegisterInput: '#userNameOnRegister',
   passwordRegisterInput: '#passwordOnRegister',
@@ -13,7 +11,7 @@ export const SELECTORS: ISelectors = {
   loginErrorMessage: '#errorMessage',
 };
 
-export const AQA_SELECTORS: ISelectors = {
+export const AQA_SELECTORS: Record<string, string> = {
   loginInput: '#emailinput',
   passwordInput: '#passwordinput',
   loginButton: 'button[type="submit"]',

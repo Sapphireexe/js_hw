@@ -1,6 +1,4 @@
-import { IMessages } from './types';
-
-const REGISTER_MESSAGES: IMessages = {
+const REGISTER_MESSAGES: Record<string, string> = {
   successfulRegistration:
     'Successfully registered! Please, click Back to return on login page',
   prefixSpaceInLoginError:
@@ -25,7 +23,7 @@ const REGISTER_MESSAGES: IMessages = {
   emptyLoginAndPasswordError: 'Please, provide valid data',
 };
 
-const LOGIN_MESSAGES: IMessages = {
+const LOGIN_MESSAGES: Record<string, string> = {
   successfulLogin: 'Hello, ',
   emptyLoginError: 'Username is required',
   nonExistentUserError: 'Invalid credentials',
@@ -37,7 +35,7 @@ const LOGIN_MESSAGES: IMessages = {
   userWithPasswordFromAnotherUserError: 'Invalid credentials',
 };
 
-const AQA_LOGIN_MESSAGES: IMessages = {
+const AQA_LOGIN_MESSAGES: Record<string, string> = {
   userLogin: 'AQA User',
 };
 
