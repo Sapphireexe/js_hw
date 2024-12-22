@@ -1,5 +1,4 @@
 import { SELECTORS } from '../data/selectors';
-import { IMessages } from '../data/types';
 import { DYNAMIC_CONTROLS_TITLES } from './messages';
 
 async function clickOnCheckbox(checkboxSelector: string, toBeChecked: boolean) {
@@ -33,7 +32,7 @@ async function waitForDisplayedAndClickable(
 }
 
 async function validateTitles() {
-  const actualTitles: IMessages = {
+  const actualTitles: Record<string, string> = {
     h4Title: await $(SELECTORS.h4Title).getText(),
     h4SecondTitle: await $(SELECTORS.h4SecondTitle).getText(),
     h4ThirdTitle: await $(SELECTORS.h4ThirdTitle).getText(),

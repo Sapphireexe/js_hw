@@ -1,6 +1,4 @@
-import { ISelectors } from './types';
-
-export const SELECTORS: ISelectors = {
+export const SELECTORS: Record<string, string> = {
   dynamicControlsPage: '//a[@href="/dynamic_controls"]',
   removeCheckboxButton: '//button[@onclick="swapCheckbox()"]',
   h4Title: '//h4[1]',
